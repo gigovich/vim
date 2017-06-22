@@ -26,6 +26,7 @@ set smarttab
 set tabstop=4
 set title
 set ttyfast
+set tags=./tags;$HOME,tags;
 set number
 set wildmenu
 set wildmode=list:longest,list:full " Wildmenu configuration
@@ -47,6 +48,20 @@ set undoreload=1000
 set keymap=russian-jcukenwin
 set iminsert=0
 set imsearch=0
+
+" Настраиваем фуззифайндер
+set rtp+=~/.fzf
+nmap <leader>fz :FZF<CR>
+
+" Настраиваем ack
+cnoreabbrev Ack Ack!
+nnoremap <Leader>a :Ack!<Space>
+
+" Настраиваем silversearch-ag для модуля ack
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
+
 
 " higlight but not jump
 nnoremap * *N

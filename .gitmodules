@@ -37,3 +37,18 @@
 [submodule "vim/bundle/vim-jsx-pretty"]
 	path = bundle/vim-jsx-pretty
 	url = https://github.com/MaxMEllon/vim-jsx-pretty.git
+[submodule "bundle/vim-node"]
+	path = bundle/vim-node
+	url = https://github.com/moll/vim-node.git
+[submodule "bundle/tern_for_vim"]
+	path = bundle/tern_for_vim
+	url = https://github.com/ternjs/tern_for_vim.git
+[submodule "bundle/vim-solidity"]
+	path = bundle/vim-solidity
+	url = https://github.com/tomlion/vim-solidity.git
+[submodule "bundle/vim-dbext"]
+	path = bundle/vim-dbext
+	url = https://github.com/jonathanfilip/vim-dbext.git
+[submodule "bundle/ack.vim"]
+	path = bundle/ack.vim
+	url = https://github.com/mileszs/ack.vim.git
