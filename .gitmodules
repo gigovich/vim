@@ -58,3 +58,6 @@
 [submodule "bundle/vim-fugitive"]
 	path = bundle/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive
+[submodule "bundle/split-term.vim"]
+	path = bundle/split-term.vim
+	url = https://github.com/vimlab/split-term.vim
