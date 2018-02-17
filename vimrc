@@ -9,6 +9,7 @@ syntax enable
 
 " Основные настройки
 set t_Co=256
+set termguicolors "solarized is ready for true-color support
 set autoindent
 set autoread " Reload files changed outside automatically
 set backspace=indent,eol,start

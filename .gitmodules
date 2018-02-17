@@ -1,6 +1,3 @@
-[submodule "vim/bundle/vim-colors-solarized"]
-	path = bundle/vim-colors-solarized
-	url = https://github.com/altercation/vim-colors-solarized.git
 [submodule "vim/bundle/bufexplorer"]
 	path = bundle/bufexplorer
 	url = https://github.com/jlanzarotta/bufexplorer.git
@@ -61,3 +58,6 @@
 [submodule "bundle/split-term.vim"]
 	path = bundle/split-term.vim
 	url = https://github.com/vimlab/split-term.vim
+[submodule "bundle/vim-solarized"]
+	path = bundle/vim-solarized
+	url = https://github.com/ericbn/vim-solarized.git
