@@ -8,8 +8,6 @@ filetype plugin indent on
 syntax enable
 
 " Основные настройки
-set t_Co=256
-set termguicolors "solarized is ready for true-color support
 set autoindent
 set autoread " Reload files changed outside automatically
 set backspace=indent,eol,start
@@ -77,8 +75,10 @@ hi ColorColumn ctermbg=red
 let g:syntastic_go_checkers = ['go', 'golint', 'govet', 'errcheck']
 
 " Настройка solirized темы
-set background=dark
 colorscheme solarized
+let g:solarized_termcolors=256
+set t_Co=256
+set background=dark
 
 " Настраиваем netrw
 let g:netrw_liststyle=3
