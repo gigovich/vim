@@ -43,6 +43,12 @@ set undofile
 set undolevels=100
 set undoreload=1000
 
+" indentLine config
+set list lcs=tab:\┊\ 
+let g:indentLine_enabled = 0
+let g:indentLine_bgcolor_term = 202
+let g:indentLine_bgcolor_gui = '#FF5F00'
+
 " настраиваем раскладку
 set keymap=russian-jcukenwin
 set iminsert=0
