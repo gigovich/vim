@@ -1,8 +1,31 @@
 set nocompatible
 filetype off
 
-call pathogen#helptags()
-call pathogen#infect()
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin('~/.vim/plugged')
+Plug 'jlanzarotta/bufexplorer'
+Plug 'scrooloose/syntastic'
+Plug 'majutsushi/tagbar'
+Plug 'fatih/vim-go'
+Plug 'rust-lang/rust.vim'
+Plug 'cespare/vim-toml'
+Plug 'racer-rust/vim-racer'
+Plug 'pangloss/vim-javascript'
+Plug 'moll/vim-node'
+Plug 'tomlion/vim-solidity'
+Plug 'mileszs/ack.vim'
+Plug 'posva/vim-vue'
+Plug 'tpope/vim-obsession'
+Plug 'tpope/vim-fugitive'
+Plug 'vimlab/split-term.vim'
+Plug 'ericbn/vim-solarized'
+Plug 'Yggdroot/indentLine'
+
 
 filetype plugin indent on
 syntax enable
