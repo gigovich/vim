@@ -1,4 +1,5 @@
 # My vim bundle
+With light solirized colorscheme
 
 ```bash
 cd ~

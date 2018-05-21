@@ -56,7 +56,7 @@ set imsearch=0
 
 " Настраиваем фуззифайндер
 set rtp+=~/.fzf
-nmap <leader>fz :FZF<CR>
+nmap <leader>fz :FZF --color light<CR>
 
 " Настраиваем ack
 cnoreabbrev Ack Ack!
@@ -75,16 +75,18 @@ nnoremap * *N
 vnoremap * y :execute ":let @/=@\""<CR> :execute "set hlsearch"<CR>
 
 " Настройка цвета ограничительной линии
-hi ColorColumn ctermbg=red
+hi ColorColumn ctermbg=white
 
 " Настраиваем syntastic
 let g:syntastic_go_checkers = ['go', 'golint', 'govet', 'errcheck']
 
 " Настройка solirized темы
-colorscheme solarized
-let g:solarized_termcolors=256
-set t_Co=256
-set background=dark
+" set term=screen-256color-bce
+" let g:solarized_termcolors=256
+" set t_Co=256
+set background=light
+hi StatusLine ctermbg=gray ctermfg=white
+" colorscheme solarized
 
 " Настраиваем netrw
 let g:netrw_liststyle=3
