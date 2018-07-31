@@ -23,8 +23,13 @@ Plug 'posva/vim-vue'
 Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-fugitive'
 Plug 'vimlab/split-term.vim'
-Plug 'ericbn/vim-solarized'
 Plug 'Yggdroot/indentLine'
+Plug 'itchyny/lightline.vim'
+Plug 'fxn/vim-monochrome'
+Plug 'altercation/vim-colors-solarized'
+Plug 'ervandew/supertab'
+Plug 'yosssi/vim-ace'
+call plug#end()
 
 
 filetype plugin indent on
@@ -49,7 +54,16 @@ set tabstop=4
 set title
 set ttyfast
 set tags=./tags;$HOME,tags;
-set number
+
+" Use relative number hybrid mode
+set number relativenumber
+
+augroup numbertoggle
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+augroup END
+
 set wildmenu
 set wildmode=list:longest,list:full " Wildmenu configuration
 set wildignore+=*.o,*.pyc,*.jpg,*.png,*.gif,*.db,*.obj,.git " Ignore compiled files
@@ -79,7 +93,7 @@ set imsearch=0
 
 " Настраиваем фуззифайндер
 set rtp+=~/.fzf
-nmap <leader>fz :FZF --color light<CR>
+nmap <leader>fz :FZF<CR>
 
 " Настраиваем ack
 cnoreabbrev Ack Ack!
@@ -104,12 +118,9 @@ hi ColorColumn ctermbg=white
 let g:syntastic_go_checkers = ['go', 'golint', 'govet', 'errcheck']
 
 " Настройка solirized темы
-" set term=screen-256color-bce
-" let g:solarized_termcolors=256
 " set t_Co=256
-set background=light
-hi StatusLine ctermbg=gray ctermfg=white
-" colorscheme solarized
+set background=dark
+colorscheme solarized
 
 " Настраиваем netrw
 let g:netrw_liststyle=3
@@ -161,6 +172,8 @@ autocmd FileType go nmap <leader>gf :GoInfo<CR>
 autocmd FileType go nmap <leader>gd :GoDoc<CR>
 autocmd FileType go nmap <leader>gg :GoDef<CR>
 autocmd FileType go nmap <leader>gr :GoRename
+autocmd FileType go set completeopt-=preview
+autocmd FileType go let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 let g:go_list_type = "quickfix"
 
 " Настраиваем Tagbar
@@ -193,3 +206,5 @@ let g:tagbar_type_go = {
     \ 'ctagsbin'  : 'gotags',
     \ 'ctagsargs' : '-sort -silent'
 \ }
+
+hi MatchParen cterm=bold ctermbg=black ctermfg=yellow
