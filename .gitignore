@@ -2,4 +2,3 @@ vim/spell/
 .netrwhist
 undodir/
 plugged/
-autoload/plug.vim
