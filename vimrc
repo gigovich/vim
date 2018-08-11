@@ -29,6 +29,7 @@ Plug 'fxn/vim-monochrome'
 Plug 'altercation/vim-colors-solarized'
 Plug 'ervandew/supertab'
 Plug 'yosssi/vim-ace'
+Plug 'rhysd/vim-grammarous'
 call plug#end()
 
 
