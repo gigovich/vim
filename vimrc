@@ -30,6 +30,7 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'ervandew/supertab'
 Plug 'yosssi/vim-ace'
 Plug 'rhysd/vim-grammarous'
+Plug 'takac/vim-hardtime'
 call plug#end()
 
 
@@ -81,6 +82,20 @@ set undofile
 set undolevels=100
 set undoreload=1000
 
+" supertab config
+function CommentTagContext()
+  if (getline('.')[:col('.')-1] =~ '\.*\/\/\.*')
+    return "\<c-x>\<c-p>"
+  endif
+endfunction
+let g:SuperTabCompletionContexts =
+    \ ['CommentTagContext', 's:ContextText', 's:ContextDiscover']
+let g:SuperTabDefaultCompletionType = "context"
+let g:SuperTabContextDefaultCompletionType="<c-x><c-o>"
+
+" enable hardtime mode everytime
+let g:hardtime_default_on = 1
+
 " indentLine config
 set list lcs=tab:\┊\ 
 let g:indentLine_enabled = 0
@@ -126,6 +141,7 @@ colorscheme solarized
 " Настраиваем netrw
 let g:netrw_liststyle=3
 let g:netrw_list_hide= '.*\.swp$,.*\.pyc$,^\..*'
+let g:netrw_bufsettings="noma nomod nonu nobl nowrap ro rnu"
 
 " Настраиваем yaml
 autocmd FileType yaml,yml setlocal shiftwidth=2
@@ -174,7 +190,6 @@ autocmd FileType go nmap <leader>gd :GoDoc<CR>
 autocmd FileType go nmap <leader>gg :GoDef<CR>
 autocmd FileType go nmap <leader>gr :GoRename
 autocmd FileType go set completeopt-=preview
-autocmd FileType go let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 let g:go_list_type = "quickfix"
 
 " Настраиваем Tagbar
@@ -207,5 +222,6 @@ let g:tagbar_type_go = {
     \ 'ctagsbin'  : 'gotags',
     \ 'ctagsargs' : '-sort -silent'
 \ }
+let g:tagbar_show_linenumbers=2
 
 hi MatchParen cterm=bold ctermbg=black ctermfg=yellow
