@@ -122,7 +122,7 @@ hi ColorColumn ctermbg=white
 let g:syntastic_go_checkers = ['go', 'golint', 'govet', 'errcheck']
 
 " Настройка solirized темы
-" set t_Co=256
+set t_Co=256
 set background=dark
 colorscheme solarized
 
