@@ -23,13 +23,12 @@ Plug 'posva/vim-vue'
 Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-fugitive'
 Plug 'vimlab/split-term.vim'
-Plug 'Yggdroot/indentLine'
 Plug 'itchyny/lightline.vim'
-Plug 'fxn/vim-monochrome'
 Plug 'altercation/vim-colors-solarized'
 Plug 'yosssi/vim-ace'
 Plug 'rhysd/vim-grammarous'
 Plug 'takac/vim-hardtime'
+Plug 'tpope/vim-commentary'
 call plug#end()
 
 
@@ -37,6 +36,7 @@ filetype plugin indent on
 syntax enable
 
 " Основные настройки
+set encoding=UTF-8
 set autoindent
 set autoread " Reload files changed outside automatically
 set backspace=indent,eol,start
@@ -83,12 +83,6 @@ set undoreload=1000
 
 " enable hardtime mode everytime
 let g:hardtime_default_on = 1
-
-" indentLine config
-set list lcs=tab:\┊\ 
-let g:indentLine_enabled = 0
-let g:indentLine_bgcolor_term = 202
-let g:indentLine_bgcolor_gui = '#FF5F00'
 
 " настраиваем раскладку
 set keymap=russian-jcukenwin
