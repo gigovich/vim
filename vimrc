@@ -25,6 +25,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'vimlab/split-term.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'altercation/vim-colors-solarized'
+Plug 'ervandew/supertab'
 Plug 'yosssi/vim-ace'
 Plug 'rhysd/vim-grammarous'
 Plug 'takac/vim-hardtime'
@@ -80,6 +81,17 @@ set undodir=~/.vim/undodir/
 set undofile
 set undolevels=100
 set undoreload=1000
+
+" supertab config
+function CommentTagContext()
+  if (getline('.')[:col('.')-1] =~ '\.*\/\/\.*')
+    return "\<c-x>\<c-p>"
+  endif
+endfunction
+let g:SuperTabCompletionContexts =
+    \ ['CommentTagContext', 's:ContextText', 's:ContextDiscover']
+let g:SuperTabDefaultCompletionType = "context"
+let g:SuperTabContextDefaultCompletionType="<c-x><c-o>"
 
 " enable hardtime mode everytime
 let g:hardtime_default_on = 1
