@@ -23,13 +23,13 @@ Plug 'posva/vim-vue'
 Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-fugitive'
 Plug 'vimlab/split-term.vim'
-Plug 'itchyny/lightline.vim'
 Plug 'altercation/vim-colors-solarized'
 Plug 'ervandew/supertab'
 Plug 'yosssi/vim-ace'
 Plug 'rhysd/vim-grammarous'
 Plug 'takac/vim-hardtime'
 Plug 'tpope/vim-commentary'
+Plug 'reedes/vim-wordy'
 call plug#end()
 
 
@@ -114,7 +114,6 @@ if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
 
-
 " higlight but not jump
 nnoremap * *N
 
@@ -185,6 +184,7 @@ autocmd FileType go nmap <leader>gg :GoDef<CR>
 autocmd FileType go nmap <leader>gr :GoRename
 autocmd FileType go set completeopt-=preview
 let g:go_list_type = "quickfix"
+let g:go_fmt_command = "goimports"
 
 " Настраиваем Tagbar
 nnoremap <leader>tb :TagbarToggle<CR>
