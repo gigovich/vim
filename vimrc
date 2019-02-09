@@ -30,6 +30,7 @@ Plug 'rhysd/vim-grammarous'
 Plug 'takac/vim-hardtime'
 Plug 'tpope/vim-commentary'
 Plug 'reedes/vim-wordy'
+Plug 'davidhalter/jedi-vim'
 call plug#end()
 
 
@@ -147,9 +148,9 @@ let g:bufExplorerShowDirectories=0   " Don't show directories.
 let g:bufExplorerSortBy='number'     " Sort by the buffer's name.
 
 " Настраиваем JS
-autocmd FileType javascript,js setlocal expandtab
-autocmd FileType javascript,js setlocal tabstop=4
-autocmd FileType javascript,js setlocal shiftwidth=4
+autocmd FileType javascript,js,html setlocal expandtab
+autocmd FileType javascript,js,html setlocal tabstop=2
+autocmd FileType javascript,js,html setlocal shiftwidth=2
 
 " Настраиваем Python
 let python_highlight_all = 1
