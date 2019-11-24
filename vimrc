@@ -23,12 +23,14 @@ Plug 'posva/vim-vue'
 Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-fugitive'
 Plug 'vimlab/split-term.vim'
-Plug 'altercation/vim-colors-solarized'
+"Plug 'altercation/vim-colors-solarized'
+Plug 'NLKNguyen/papercolor-theme'
 Plug 'yosssi/vim-ace'
 Plug 'rhysd/vim-grammarous'
 Plug 'tpope/vim-commentary'
 Plug 'reedes/vim-wordy'
 Plug 'davidhalter/jedi-vim'
+Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'soywod/kronos.vim'
 Plug 'rakr/vim-one'
@@ -142,14 +144,14 @@ if (has("termguicolors"))
     set termguicolors
 endif
 
-" set t_Co=256
-set background=dark
+set t_Co=256
+set background=light
 " colorscheme solarized
-colorscheme one
+colorscheme PaperColor
 
 " Настраиваем netrw
 let g:netrw_liststyle=3
-let g:netrw_list_hide= '.*\.swp$,.*\.pyc$,^\..*'
+let g:netrw_list_hide= '^\..\?'
 let g:netrw_bufsettings="noma nomod nonu nobl nowrap ro rnu"
 
 " Настраиваем yaml
@@ -181,9 +183,15 @@ let g:racer_cmd=$HOME."/.cargo/bin/racer"
 let g:racer_experimantal_completer=1
 au FileType rust nmap <leader>gg <Plug>(rust-def)
 au FileType rust nmap <leader>gd <Plug>(rust-doc)
+
 "au FileType rust let g:syntastic_rust_checkers=['rustc']
 au BufRead *.rs :setlocal tags=./rusty-tags.vi;/,$RUST_SRC_PATH/rusty-tags.vi
 au BufWrite *.rs :silent! exec "!rusty-tags vi --quiet --start-dir=" . getcwd() . "&"
+
+" Setup clang autocomplete
+let g:LanguageClient_serverCommands = {
+  \ 'cpp': ['clangd-8'],
+  \ }
 
 " Настраиваем GO
 autocmd FileType go setlocal noexpandtab
