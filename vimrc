@@ -209,7 +209,7 @@ autocmd FileType go nmap <leader>gr :GoRename
 autocmd FileType go set completeopt-=preview
 let g:go_list_type = "quickfix"
 let g:go_fmt_command = "goimports"
-let g:go_gorename_command = 'gopls'
+let g:go_rename_command = 'gopls'
 
 " Настраиваем Tagbar
 nnoremap <leader>tb :TagbarToggle<CR>
