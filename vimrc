@@ -12,27 +12,20 @@ Plug 'jlanzarotta/bufexplorer'
 Plug 'scrooloose/syntastic'
 Plug 'majutsushi/tagbar'
 Plug 'fatih/vim-go'
-Plug 'rust-lang/rust.vim'
 Plug 'cespare/vim-toml'
-Plug 'racer-rust/vim-racer'
-Plug 'pangloss/vim-javascript'
+Plug 'yuezk/vim-js'
+Plug 'maxmellon/vim-jsx-pretty'
 Plug 'moll/vim-node'
-Plug 'tomlion/vim-solidity'
 Plug 'mileszs/ack.vim'
 Plug 'posva/vim-vue'
 Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-fugitive'
 Plug 'vimlab/split-term.vim'
-"Plug 'altercation/vim-colors-solarized'
-Plug 'NLKNguyen/papercolor-theme'
-Plug 'yosssi/vim-ace'
-Plug 'rhysd/vim-grammarous'
+Plug 'lifepillar/vim-solarized8'
 Plug 'tpope/vim-commentary'
-Plug 'reedes/vim-wordy'
 Plug 'davidhalter/jedi-vim'
 Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'soywod/kronos.vim'
 Plug 'rakr/vim-one'
 Plug 'burner/vim-svelte'
 call plug#end()
@@ -144,10 +137,12 @@ if (has("termguicolors"))
     set termguicolors
 endif
 
-set t_Co=256
-set background=light
+" set t_Co=256
+" set background=light
+set background=dark
+colorscheme solarized8_high
 " colorscheme solarized
-colorscheme PaperColor
+" colorscheme PaperColor
 
 " Настраиваем netrw
 let g:netrw_liststyle=3
@@ -211,36 +206,9 @@ let g:go_list_type = "quickfix"
 let g:go_fmt_command = "goimports"
 let g:go_rename_command = 'gopls'
 
-" Настраиваем Tagbar
+" Setup Tagbar
 nnoremap <leader>tb :TagbarToggle<CR>
 let g:tagbar_autoclose=1
-let g:tagbar_type_go = {
-    \ 'ctagstype' : 'go',
-    \ 'kinds'     : [
-        \ 'p:package',
-        \ 'i:imports:1',
-        \ 'c:constants',
-        \ 'v:variables',
-        \ 't:types',
-        \ 'n:interfaces',
-        \ 'w:fields',
-        \ 'e:embedded',
-        \ 'm:methods',
-        \ 'r:constructor',
-        \ 'f:functions'
-    \ ],
-    \ 'sro' : '.',
-    \ 'kind2scope' : {
-        \ 't' : 'ctype',
-        \ 'n' : 'ntype'
-    \ },
-    \ 'scope2kind' : {
-        \ 'ctype' : 't',
-        \ 'ntype' : 'n'
-    \ },
-    \ 'ctagsbin'  : 'gotags',
-    \ 'ctagsargs' : '-sort -silent'
-\ }
 let g:tagbar_show_linenumbers=2
 
-hi MatchParen cterm=bold ctermbg=black ctermfg=yellow
+" hi MatchParen cterm=bold ctermbg=black ctermfg=yellow
