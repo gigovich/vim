@@ -61,6 +61,7 @@ Plug 'fatih/vim-go'
 " Plug 'govim/govim'
 Plug 'cespare/vim-toml'
 Plug 'yuezk/vim-js'
+Plug 'HerringtonDarkholme/yats.vim'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'moll/vim-node'
 Plug 'mileszs/ack.vim'
@@ -75,7 +76,8 @@ Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.s
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'rakr/vim-one'
 Plug 'burner/vim-svelte'
-Plug 'pechorin/any-jump.vim'
+" Plug 'pechorin/any-jump.vim'
+Plug 'Quramy/tsuquyomi'
 call plug#end()
 
 augroup numbertoggle
@@ -127,9 +129,10 @@ let g:bufExplorerShowDirectories=0   " Don't show directories.
 let g:bufExplorerSortBy='number'     " Sort by the buffer's name.
 
 " JS
-autocmd FileType javascript,js,html,svelte setlocal expandtab
-autocmd FileType javascript,js,html,svelte setlocal tabstop=2
-autocmd FileType javascript,js,html,svelte setlocal shiftwidth=2
+autocmd FileType javascript,js,html,svelte,css,react,typescript setlocal expandtab
+autocmd FileType javascript,js,html,svelte,css,react,typescript setlocal tabstop=2
+autocmd FileType javascript,js,html,svelte,css,react,typescript setlocal shiftwidth=2
+autocmd BufEnter *.svelte :syntax sync fromstart
 
 " Python
 let python_highlight_all = 1
