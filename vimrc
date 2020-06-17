@@ -68,7 +68,6 @@ Plug 'mileszs/ack.vim'
 Plug 'posva/vim-vue'
 Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-fugitive'
-Plug 'vimlab/split-term.vim'
 Plug 'lifepillar/vim-solarized8'
 Plug 'tpope/vim-commentary'
 Plug 'davidhalter/jedi-vim'
@@ -76,7 +75,7 @@ Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.s
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'rakr/vim-one'
 Plug 'burner/vim-svelte'
-" Plug 'pechorin/any-jump.vim'
+Plug 'pechorin/any-jump.vim'
 Plug 'Quramy/tsuquyomi'
 call plug#end()
 
@@ -129,9 +128,17 @@ let g:bufExplorerShowDirectories=0   " Don't show directories.
 let g:bufExplorerSortBy='number'     " Sort by the buffer's name.
 
 " JS
-autocmd FileType javascript,js,html,svelte,css,react,typescript setlocal expandtab
-autocmd FileType javascript,js,html,svelte,css,react,typescript setlocal tabstop=2
-autocmd FileType javascript,js,html,svelte,css,react,typescript setlocal shiftwidth=2
+autocmd FileType javascript,javascriptreact setlocal expandtab
+autocmd FileType typescript,typescriptcommon,typescriptreact setlocal expandtab
+autocmd FileType html,css,svelte setlocal expandtab
+
+autocmd FileType javascript,javascriptreact setlocal tabstop=2
+autocmd FileType typescript,typescriptcommon,typescriptreact setlocal tabstop=2
+autocmd FileType html,css,svelte setlocal tabstop=2
+
+autocmd FileType javascript,javascriptreact setlocal shiftwidth=2
+autocmd FileType typescript,typescriptcommon,typescriptreact setlocal shiftwidth=2
+autocmd FileType html,css,svelte setlocal shiftwidth=2
 autocmd BufEnter *.svelte :syntax sync fromstart
 
 " Python
