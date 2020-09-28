@@ -58,7 +58,6 @@ Plug 'jlanzarotta/bufexplorer'
 Plug 'scrooloose/syntastic'
 Plug 'majutsushi/tagbar'
 Plug 'fatih/vim-go'
-" Plug 'govim/govim'
 Plug 'cespare/vim-toml'
 Plug 'yuezk/vim-js'
 Plug 'HerringtonDarkholme/yats.vim'
@@ -68,7 +67,6 @@ Plug 'mileszs/ack.vim'
 Plug 'posva/vim-vue'
 Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-fugitive'
-Plug 'lifepillar/vim-solarized8'
 Plug 'tpope/vim-commentary'
 Plug 'davidhalter/jedi-vim'
 Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
@@ -77,6 +75,8 @@ Plug 'rakr/vim-one'
 Plug 'burner/vim-svelte'
 Plug 'pechorin/any-jump.vim'
 Plug 'Quramy/tsuquyomi'
+Plug 'jparise/vim-graphql'
+Plug 'cocopon/iceberg.vim'
 call plug#end()
 
 augroup numbertoggle
@@ -85,10 +85,8 @@ augroup numbertoggle
   autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
 augroup END
 
-" Solirized
-colorscheme solarized8
-let g:solarized_visibility="high"
-let g:solarized_diffmode="high"
+" Iceberg
+colorscheme iceberg
 
 " Fuzzyfinder
 nmap <leader>fz :FZF<CR>
