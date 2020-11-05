@@ -77,6 +77,7 @@ Plug 'pechorin/any-jump.vim'
 Plug 'Quramy/tsuquyomi'
 Plug 'jparise/vim-graphql'
 Plug 'cocopon/iceberg.vim'
+Plug 'kamykn/spelunker.vim'
 call plug#end()
 
 augroup numbertoggle
