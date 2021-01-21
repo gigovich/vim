@@ -5,7 +5,6 @@ set autoindent
 set autoread
 set background=dark
 set backspace=2
-set balloondelay=250
 set encoding=UTF-8
 set expandtab
 set exrc
@@ -32,9 +31,7 @@ set smarttab
 set tabstop=4
 set tags=./tags;$HOME,tags;
 set termguicolors
-set title
 set ttyfast
-set ttymouse=sgr
 set undodir=~/.vim/undodir/
 set undofile
 set undolevels=128
@@ -43,9 +40,19 @@ set updatetime=500
 set wildignore+=*.o,*.pyc,*.jpg,*.png,*.gif,*.db,*.obj,.git
 set wildmenu
 set wildmode=list:longest,list:full
+if !has('nvim')
+    set ttymouse=sgr
+    set balloondelay=250
+    set title
+    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+endif
 
-let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+if &term =~ '256color'
+  " disable Background Color Erase (BCE)
+  set t_ut=
+endif
+
 
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -76,8 +83,15 @@ Plug 'burner/vim-svelte'
 Plug 'pechorin/any-jump.vim'
 Plug 'Quramy/tsuquyomi'
 Plug 'jparise/vim-graphql'
-Plug 'cocopon/iceberg.vim'
+Plug 'lifepillar/vim-solarized8'
 Plug 'kamykn/spelunker.vim'
+Plug 'glench/vim-jinja2-syntax'
+if has('nvim')
+    Plug 'nvim-lua/popup.nvim'
+    Plug 'nvim-lua/plenary.nvim'
+    Plug 'nvim-telescope/telescope.nvim'
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+endif
 call plug#end()
 
 augroup numbertoggle
@@ -86,8 +100,8 @@ augroup numbertoggle
   autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
 augroup END
 
-" Iceberg
-colorscheme iceberg
+" Solorized8
+colorscheme solarized8
 
 " Fuzzyfinder
 nmap <leader>fz :FZF<CR>
@@ -182,8 +196,25 @@ autocmd FileType go nmap <leader>gn :GoRename
 autocmd FileType go nmap <silent> <buffer> <leader>gf :GoInfo<CR>
 autocmd FileType go nmap <silent> <buffer> <leader>gd :GoDoc<CR>
 autocmd FileType go nmap <silent> <buffer> <leader>gg :GoDef<CR>
-autocmd FileType go nmap <silent> <buffer> <leader>gr :GoReference<CR>
+autocmd FileType go nmap <silent> <buffer> <leader>gr :GoReferrers<CR>
 autocmd FileType go set completeopt-=preview
 let g:go_list_type = "quickfix"
 let g:go_fmt_command = "goimports"
 let g:go_rename_command = 'gopls'
+
+if has('nvim')
+" Remap FZF and add other mappings by Telescope
+nnoremap <leader>fz <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+
+lua << EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  highlight = {
+    enable = true,              -- false will disable the whole extension
+  },
+}
+EOF
+endif
